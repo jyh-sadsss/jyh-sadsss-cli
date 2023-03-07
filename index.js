@@ -23,6 +23,7 @@ program
             type: 'input',
             name: 'description',
             message: '请输入项目描述:',
+            default: 'nextjs-template',
           },
           {
             type: 'input',
@@ -33,6 +34,7 @@ program
             type: 'input',
             name: 'template',
             message: '请输入项目类型(nextjs):',
+            default: 'nextjs',
           },
         ])
         .then((answers) => {
@@ -40,7 +42,7 @@ program
           spinner.start()
           download(
             'https://github.com:jyh-sadsss/next-template#master',
-            name,
+            name, // 下载模板的路径，这个路径是相对路径，拼接在执行这个命令的路径下面
             // { clone: true },
             (error) => {
               if (error) {
